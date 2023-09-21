@@ -3,7 +3,7 @@ import FindingRequestsListSlice from "../application/features/findingRequestsLis
 
 export const store = configureStore({
   reducer: {
-    findingRequestsListSlice: FindingRequestsListSlice,
+    findingRequestsList: FindingRequestsListSlice,
   },
 });
 

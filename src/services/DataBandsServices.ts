@@ -1,4 +1,5 @@
 import { AxiosError } from "axios";
+
 import { FindBandsDTO } from "../application/types/dto";
 import { findByBandsAPI } from "../api";
 
