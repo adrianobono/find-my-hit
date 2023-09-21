@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import "./app.scss";
-import { getBands } from "./services/DataBandsServices";
-import { FindBandsDTO } from "./application/types/find-bands.dto";
+import { getBands } from "../../../services/DataBandsServices";
+import { FindBandsDTO } from "../../../application/types/dto/find-bands.dto";
 
-function App() {
+function FindMyHitContainer() {
   const [findBands, setFindBands] = useState<FindBandsDTO[]>([]);
   useEffect(() => {
     getBands().then((data) => setFindBands(data));
@@ -16,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default FindMyHitContainer;
