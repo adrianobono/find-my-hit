@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { getBands } from "../../../services/DataBandsServices";
 import { useSelector, useDispatch } from "react-redux";
+import styles from "./FindMyHitContainer.module.scss";
 import {
   setsForFindMyHit,
   setFinded,
   tempSetFinded,
 } from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
+import List from "../../components/List";
 
 function FindMyHitContainer() {
-  const { countFindRequests, findedHits, tempFindedHits } =
-    useSelector(setsForFindMyHit);
+  const { findedHits, tempFindedHits } = useSelector(setsForFindMyHit);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,21 +22,12 @@ function FindMyHitContainer() {
 
   return (
     <>
-      {countFindRequests}
-
       <div className="app-title">Find my favorite hit</div>
       {findedHits && (
-        <div>
-          {(tempFindedHits.length > 0 ? tempFindedHits : findedHits).map(
-            (band, index) => {
-              return (
-                <ul key={index}>
-                  <li>{band.name}</li>
-                  <li>{band.numPlays}</li>
-                </ul>
-              );
-            }
-          )}
+        <div className={styles["find-hit__wrapper"]}>
+          <List
+            items={tempFindedHits.length > 0 ? tempFindedHits : findedHits}
+          />
         </div>
       )}
     </>
