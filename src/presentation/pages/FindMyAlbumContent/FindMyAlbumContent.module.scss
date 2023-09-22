@@ -1,0 +1,102 @@
+.find-album__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+    background-color: #767777;
+
+    img {
+        align-self: center;
+    }
+}
+
+.find-album-card__wrapper {
+    display: flex;
+}
+
+.find-album__card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.find-album__card--block {
+    width: 90%;
+    height: 130px;
+    align-self: center;
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index: 3;
+    background: linear-gradient(
+        0deg,
+        rgba(200, 200, 200, 1) 0%,
+        rgba(245, 245, 245, 0.5046393557422969) 20%,
+        rgb(37, 36, 36) 45%,
+        rgb(167, 155, 134) 100%
+    );
+    background-color: white;
+
+    img {
+        position: relative;
+        margin-top: -30px;
+        border-radius: 10%;
+        -webkit-box-shadow: 22px 25px 15px -23px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 22px 25px 15px -23px rgba(0, 0, 0, 1);
+        box-shadow: 22px 25px 15px -23px rgba(0, 0, 0, 1);
+    }
+}
+
+*:focus {
+    outline: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    font-size: 0.9rem;
+    width: 85%;
+}
+li {
+    padding: 5px;
+    overflow: hidden;
+    color: black;
+    color: rgb(221, 250, 0);
+}
+.find-album-accordion {
+    border: 1px solid #4d4a4a;
+    border-bottom: none;
+    background: rgb(63, 63, 63);
+}
+.find-album-accordion span {
+    padding: 10px;
+    display: block;
+}
+.find-album-accordion > li {
+    border-bottom: 1px solid rgb(221, 250, 0);
+}
+.find-album-accordion li ul {
+    background: #fff;
+    border-top: 1px solid #ccc;
+    display: none;
+}
+
+/* a mágica acontece aqui */
+.find-album-accordion li:focus ul {
+    display: block;
+}
+
+.find-album-accordion-bio {
+    font-size: 0.8rem;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 5px;
+    color: #5e5e5e;
+}
+.find-album-accordion-tracks {
+    font-size: 0.8rem;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 5px;
+    border-bottom: 1px solid rgb(128, 128, 128);
+    color: #5e5e5e;
+}
