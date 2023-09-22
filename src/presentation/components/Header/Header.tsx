@@ -94,7 +94,7 @@ const Header: React.FC = () => {
                     setShowMenu(!showMenu);
                   }}
                 >
-                  Pop
+                  Popularity
                 </button>
                 <button
                   onClick={() => {
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
                     setShowMenu(!showMenu);
                   }}
                 >
-                  Alpha Order
+                  Alphabetical
                 </button>
               </div>
             )}
