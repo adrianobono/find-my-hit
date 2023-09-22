@@ -3,7 +3,7 @@
 Simple local usage:
 
 - Download or clone this repository
-- If downwloaded: Extract porject
+- If downloaded: Extract the project
 - Execute:  npm install
 - Execute:  npm run dev
 
