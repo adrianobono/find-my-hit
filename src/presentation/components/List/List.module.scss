@@ -4,7 +4,8 @@
     height: 65px;
     margin: 0 auto 20px;
     border-top-left-radius: 15px;
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 20px;
     display: grid;
     color: rgb(221, 250, 0);
     grid-template-columns: 1fr 9fr 2fr;
@@ -19,11 +20,20 @@
         rgb(143, 141, 141) 100%
     );
 
+    @media only screen and (min-width: 992px) {
+        grid-template-columns: 0.5fr 9.5fr 1fr;
+    }
+
     div:first-child {
         height: 20px;
-        margin-top: 25px;
+        font-size: 0.9rem;
+        margin-top: 20px;
         border-bottom: 2px solid;
         transform: rotate(-90deg);
+
+        @media only screen and (min-width: 992px) {
+            width: 50px;
+        }
     }
 
     div:nth-child(2) {
@@ -34,8 +44,9 @@
         flex-direction: column;
 
         span {
-            padding-top: 10px;
-            font-size: 0.8rem;
+            padding-top: 5px;
+            font-size: 0.7rem;
+            text-align: left;
         }
     }
 
@@ -45,10 +56,11 @@
         padding-left: 15px;
 
         span {
-            padding: 8px;
+            padding: 4px;
             border: 1px solid rgb(238, 238, 240);
             margin-top: 10px;
             border-radius: 30px;
+            font-size: 1.2rem;
             cursor: pointer;
         }
     }

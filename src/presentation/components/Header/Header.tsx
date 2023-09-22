@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   setOrderByName,
   setsForFindMyHit,
@@ -10,9 +10,12 @@ import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
   const [searchInput, setSearchInput] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
   const { orderByName, findedHits, tempFindedHits } =
     useSelector(setsForFindMyHit);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const filterData = (term: string) => {
     const filteredResults =
@@ -31,7 +34,6 @@ const Header: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log(orderByName);
     if (findedHits.length > 0) {
       const tempHits =
         tempFindedHits.length > 0 ? [...tempFindedHits] : [...findedHits];
@@ -45,21 +47,67 @@ const Header: React.FC = () => {
       );
     }
   }, [orderByName]);
+
   return (
     <header className={styles.header__wrapper}>
-      <div>back</div>
       <div>
-        Find:
-        <input
-          type="text"
-          placeholder="Find your Hit..."
-          value={searchInput}
-          onChange={(e) => handleChange(e)}
-        />
+        {location.pathname === "/albums" && (
+          <button
+            className={styles["header-back-button"]}
+            onClick={() => navigate("/")}
+          >
+            {"<"}
+          </button>
+        )}
+      </div>
+      <div className={styles["header-back__search"]}>
+        {location.pathname !== "/albums" && (
+          <>
+            Find
+            <input
+              type="text"
+              placeholder="your Hit..."
+              value={searchInput}
+              onChange={(e) => handleChange(e)}
+            />
+            <img src="./magnifying-glass.svg" alt="" />
+          </>
+        )}
+
+        {location.pathname === "/albums" && (
+          <>
+            <h3>Album(s)</h3>
+          </>
+        )}
       </div>
       <div>
-        {" "}
-        <button onClick={() => dispatch(setOrderByName())}>change</button>
+        {location.pathname !== "/albums" && (
+          <div className={styles["header-order-menu"]}>
+            <button onClick={() => setShowMenu(!showMenu)}>
+              <img src="./switch-vertical.svg" alt="" />
+            </button>
+            {showMenu && (
+              <div>
+                <button
+                  onClick={() => {
+                    dispatch(setOrderByName(true));
+                    setShowMenu(!showMenu);
+                  }}
+                >
+                  Pop
+                </button>
+                <button
+                  onClick={() => {
+                    dispatch(setOrderByName(false));
+                    setShowMenu(!showMenu);
+                  }}
+                >
+                  Alpha Order
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </header>
   );

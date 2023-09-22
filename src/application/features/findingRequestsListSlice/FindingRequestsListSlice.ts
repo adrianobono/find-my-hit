@@ -1,30 +1,33 @@
+import { getAlbums } from "./../../../services/DataAlbumsServices";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../../config/store";
-import { FindBandsDTO } from "../../types/dto";
+import { FindAlbumsDTO, FindBandsDTO } from "../../types/dto";
 
 interface FindMyHitState {
   orderByName: boolean;
-  onHome: boolean;
+
   findedHits: FindBandsDTO[];
   tempFindedHits: FindBandsDTO[];
+  myBandId: string;
+  albumsIds: [];
+  dataAlbuns: FindAlbumsDTO[];
 }
 
 const initialState: FindMyHitState = {
-  onHome: true,
   orderByName: false,
   findedHits: [],
   tempFindedHits: [],
+  myBandId: "",
+  dataAlbuns: [],
+  albumsIds: [],
 };
 
 const findingRequestsListSlice = createSlice({
   name: "finding",
   initialState,
   reducers: {
-    setOrderByName(state) {
-      state.orderByName = !state.orderByName;
-    },
-    setOnHome(state) {
-      state.onHome = !state.onHome;
+    setOrderByName(state, action) {
+      state.orderByName = action.payload;
     },
 
     setFinded(state, action) {
@@ -34,6 +37,15 @@ const findingRequestsListSlice = createSlice({
     tempSetFinded(state, action) {
       state.tempFindedHits = action.payload;
     },
+    setMyBandSelected(state, action) {
+      state.myBandId = action.payload;
+    },
+    setDataAlbums(state, action) {
+      state.dataAlbuns = action.payload;
+    },
+    setIdsAlbums(state, action) {
+      state.albumsIds = action.payload;
+    },
   },
 });
 
@@ -42,7 +54,13 @@ export const { actions: findingRequestsListSliceActions } =
 
 export const setsForFindMyHit = (state: RootState) => state.findingRequestsList;
 
-export const { setOrderByName, setFinded, tempSetFinded } =
-  findingRequestsListSlice.actions;
+export const {
+  setOrderByName,
+  setFinded,
+  setIdsAlbums,
+  setDataAlbums,
+  setMyBandSelected,
+  tempSetFinded,
+} = findingRequestsListSlice.actions;
 
 export default findingRequestsListSlice.reducer;
