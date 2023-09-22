@@ -1,9 +1,6 @@
 import { AxiosError } from "axios";
 import axios from "axios";
 
-import { FindAlbumsDTO } from "../application/types/dto";
-import { findByAlbumsAPI } from "../api";
-
 export const getAlbums = async (id: string): Promise<any> => {
   const teste = axios.create({
     baseURL: `https://dws-recruiting-bands.dwsbrazil.io/api/albums/${id}`,
