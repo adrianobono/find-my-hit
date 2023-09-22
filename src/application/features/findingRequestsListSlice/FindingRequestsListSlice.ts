@@ -1,4 +1,3 @@
-import { getAlbums } from "./../../../services/DataAlbumsServices";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../../config/store";
 import { FindAlbumsDTO, FindBandsDTO } from "../../types/dto";
@@ -59,7 +58,6 @@ export const {
   setFinded,
   setIdsAlbums,
   setDataAlbums,
-  setMyBandSelected,
   tempSetFinded,
 } = findingRequestsListSlice.actions;
 

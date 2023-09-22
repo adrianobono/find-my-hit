@@ -1,7 +1,4 @@
-import {
-  setIdsAlbums,
-  setMyBandSelected,
-} from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
+import { setIdsAlbums } from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
 import { FindBandsDTO } from "../../../application/types/dto";
 import styles from "./List.module.scss";
 import { useDispatch } from "react-redux";
