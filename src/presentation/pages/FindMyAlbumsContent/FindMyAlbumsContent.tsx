@@ -7,7 +7,7 @@ import {
   setDataAlbums,
   setsForFindMyHit,
 } from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
-import styles from "./FindMyAlbumContent.module.scss";
+import styles from "./FindMyAlbumsContent.module.scss";
 
 function FindMyAlbumContent() {
   const dispatch = useDispatch();
