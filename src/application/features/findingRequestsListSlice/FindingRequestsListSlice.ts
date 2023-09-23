@@ -9,7 +9,7 @@ interface FindMyHitState {
   tempFindedHits: FindBandsDTO[];
   myBandId: string;
   albumsIds: [];
-  dataAlbuns: FindAlbumsDTO[];
+  dataAlbums: FindAlbumsDTO[];
 }
 
 const initialState: FindMyHitState = {
@@ -17,7 +17,7 @@ const initialState: FindMyHitState = {
   findedHits: [],
   tempFindedHits: [],
   myBandId: "",
-  dataAlbuns: [],
+  dataAlbums: [],
   albumsIds: [],
 };
 
@@ -40,7 +40,7 @@ const findingRequestsListSlice = createSlice({
       state.myBandId = action.payload;
     },
     setDataAlbums(state, action) {
-      state.dataAlbuns = action.payload;
+      state.dataAlbums = action.payload;
     },
     setIdsAlbums(state, action) {
       state.albumsIds = action.payload;

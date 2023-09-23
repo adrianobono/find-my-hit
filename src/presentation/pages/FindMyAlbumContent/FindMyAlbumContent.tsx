@@ -12,9 +12,9 @@ import styles from "./FindMyAlbumContent.module.scss";
 function FindMyAlbumContent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { albumsIds, dataAlbuns } = useSelector(setsForFindMyHit);
+  const { albumsIds, dataAlbums } = useSelector(setsForFindMyHit);
   const albums: FindAlbumsDTO[] = [];
-  const tempAlbuns: any = sessionStorage.getItem("albums");
+  const tempAlbums: any = sessionStorage.getItem("albums");
 
   const findAlbums = async () => {
     albumsIds.map((id: string) => {
@@ -25,9 +25,9 @@ function FindMyAlbumContent() {
   };
 
   useEffect(() => {
-    if (tempAlbuns && tempAlbuns !== "[]") {
+    if (tempAlbums && tempAlbums !== "[]") {
       setTimeout(() => {
-        dispatch(setDataAlbums(JSON.parse(tempAlbuns)));
+        dispatch(setDataAlbums(JSON.parse(tempAlbums)));
       }, 500);
     } else {
       Promise.all([findAlbums()])
@@ -46,8 +46,8 @@ function FindMyAlbumContent() {
 
   return (
     <div className={styles["find-album__wrapper"]}>
-      {dataAlbuns.length > 0 &&
-        dataAlbuns.map((item, index) => (
+      {dataAlbums.length > 0 &&
+        dataAlbums.map((item, index) => (
           <div key={index} className={styles["find-album__card"]}>
             <div className={styles["find-album__card--block"]}>
               <img src={item.image} height={120} alt="" />
