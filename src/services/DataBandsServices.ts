@@ -1,11 +1,11 @@
 import { AxiosError } from "axios";
 
 import { FindBandsDTO } from "../application/types/dto";
-import { findByBandsAPI } from "../api";
+import { findMyHitAPI } from "../api";
 
 export const getBands = async (): Promise<FindBandsDTO[]> => {
   try {
-    const { data } = await findByBandsAPI.get("");
+    const { data } = await findMyHitAPI.get("/bands");
 
     return data;
   } catch (error) {
