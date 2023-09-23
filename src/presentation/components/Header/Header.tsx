@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
+  setDataAlbums,
   setOrderByName,
   setsForFindMyHit,
   tempSetFinded,
@@ -54,7 +55,11 @@ const Header: React.FC = () => {
         {location.pathname === "/albums" && (
           <button
             className={styles["header-back-button"]}
-            onClick={() => navigate("/")}
+            onClick={() => {
+              sessionStorage.setItem("albums", "[]");
+              dispatch(setDataAlbums([]));
+              navigate("/");
+            }}
           >
             {"<"}
           </button>
