@@ -7,32 +7,48 @@ import {
   setDataAlbums,
   setsForFindMyHit,
 } from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
-import styles from "./FindMyAlbumContent.module.scss";
+import styles from "./FindMyAlbumsContent.module.scss";
 
 function FindMyAlbumContent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { albumsIds, dataAlbuns } = useSelector(setsForFindMyHit);
+  const { albumsIds, dataAlbums } = useSelector(setsForFindMyHit);
   const albums: FindAlbumsDTO[] = [];
+  const tempAlbums: any = sessionStorage.getItem("albums");
+
+  const findAlbums = async () => {
+    albumsIds.map((id: string) => {
+      getAlbums(id).then((data) => {
+        albums.push(data);
+      });
+    });
+  };
 
   useEffect(() => {
-    if (albumsIds.length > 0) {
-      albumsIds.map((id: string) => {
-        getAlbums(id).then((data) => {
-          albums.push(data);
+    if (tempAlbums && tempAlbums !== "[]") {
+      setTimeout(() => {
+        dispatch(setDataAlbums(JSON.parse(tempAlbums)));
+      }, 500);
+    } else {
+      Promise.all([findAlbums()])
+        .then(() => {
           setTimeout(() => {
+            albums.length === 0 && navigate("/");
+            sessionStorage.setItem("albums", JSON.stringify(albums));
             dispatch(setDataAlbums(albums));
-          }, 200);
+          }, 500);
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      });
-    } else navigate("/");
+    }
   }, []);
 
   return (
     <div className={styles["find-album__wrapper"]}>
-      {dataAlbuns.length > 0 &&
-        dataAlbuns.map((item) => (
-          <div className={styles["find-album__card"]}>
+      {dataAlbums.length > 0 &&
+        dataAlbums.map((item, index) => (
+          <div key={index} className={styles["find-album__card"]}>
             <div className={styles["find-album__card--block"]}>
               <img src={item.image} height={120} alt="" />
               <p>Album: {item.name}</p>

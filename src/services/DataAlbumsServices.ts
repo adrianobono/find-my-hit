@@ -1,12 +1,10 @@
 import { AxiosError } from "axios";
-import axios from "axios";
+import { findMyHitAPI } from "../api";
 
 export const getAlbums = async (id: string): Promise<any> => {
-  const teste = axios.create({
-    baseURL: `https://dws-recruiting-bands.dwsbrazil.io/api/albums/${id}`,
-  });
   try {
-    const { data } = await teste.get("");
+    const { data } = await findMyHitAPI.get(`/albums/${id}`);
+
     return data;
   } catch (error) {
     const err = error as AxiosError;

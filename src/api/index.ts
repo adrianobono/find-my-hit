@@ -1,1 +1,1 @@
-export * from "./find-by-bands";
+export * from "./find-my-hit-api";

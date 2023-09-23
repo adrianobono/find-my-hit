@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FindMyHitContainer from "../presentation/pages/FindMyHitContainer/FindMyHitContainer";
 import Header from "../presentation/components/Header";
-import FindMyAlbumContent from "../presentation/pages/FindMyAlbumContent/FindMyAlbumContent";
+import FindMyAlbumsContent from "../presentation/pages/FindMyAlbumsContent/FindMyAlbumsContent";
 
 const Router: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Router: React.FC = () => {
       <Header />
       <Routes>
         <Route path="" element={<FindMyHitContainer />} />
-        <Route path="/albums" element={<FindMyAlbumContent />} />
+        <Route path="/albums" element={<FindMyAlbumsContent />} />
       </Routes>
     </BrowserRouter>
   );
