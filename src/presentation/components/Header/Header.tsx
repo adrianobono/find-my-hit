@@ -92,22 +92,22 @@ const Header: React.FC = () => {
 
             {showMenu && (
               <div>
-                <button
+                <Button
                   onClick={() => {
                     dispatch(setOrderByName(true));
                     setShowMenu(!showMenu);
                   }}
                 >
                   Popularity
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => {
                     dispatch(setOrderByName(false));
                     setShowMenu(!showMenu);
                   }}
                 >
                   Alphabetical
-                </button>
+                </Button>
               </div>
             )}
           </div>
