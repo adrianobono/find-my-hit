@@ -8,6 +8,7 @@ import {
   tempSetFinded,
 } from "../../../application/features/findingRequestsListSlice/FindingRequestsListSlice";
 import styles from "./Header.module.scss";
+import { Button } from "../Button";
 
 const Header: React.FC = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -49,20 +50,17 @@ const Header: React.FC = () => {
     }
   }, [orderByName]);
 
+  const handleBackClick = () => {
+    sessionStorage.setItem("albums", "[]");
+    dispatch(setDataAlbums([]));
+    navigate("/");
+  };
+
   return (
     <header className={styles.header__wrapper}>
       <div>
         {location.pathname === "/albums" && (
-          <button
-            className={styles["header-back-button"]}
-            onClick={() => {
-              sessionStorage.setItem("albums", "[]");
-              dispatch(setDataAlbums([]));
-              navigate("/");
-            }}
-          >
-            {"<"}
-          </button>
+          <Button onClick={() => handleBackClick()}>{"<"}</Button>
         )}
       </div>
       <div className={styles["header-back__search"]}>
@@ -88,9 +86,10 @@ const Header: React.FC = () => {
       <div>
         {location.pathname !== "/albums" && (
           <div className={styles["header-order-menu"]}>
-            <button onClick={() => setShowMenu(!showMenu)}>
+            <Button onClick={() => setShowMenu(!showMenu)}>
               <img src="./switch-vertical.svg" alt="" />
-            </button>
+            </Button>
+
             {showMenu && (
               <div>
                 <button
