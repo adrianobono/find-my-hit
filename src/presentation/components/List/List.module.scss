@@ -55,11 +55,12 @@
         padding-top: 20px;
         padding-left: 15px;
 
-        span {
-            padding: 4px;
+        button {
+            width: 25px;
+            height: 25px;
             border: 1px solid rgb(238, 238, 240);
-            margin-top: 10px;
-            border-radius: 30px;
+            margin-top: 0px;
+            border-radius: 50%;
             font-size: 1.2rem;
             cursor: pointer;
         }
