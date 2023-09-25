@@ -4,6 +4,6 @@ import pluginChecker from "vite-plugin-checker";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "",
+  base: "/find-my-hit/",
   plugins: [react(), pluginChecker({ typescript: true })],
 });
