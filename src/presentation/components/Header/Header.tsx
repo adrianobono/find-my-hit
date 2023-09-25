@@ -56,6 +56,11 @@ const Header: React.FC = () => {
     navigate("/find-my-hit/");
   };
 
+  const handleSetOrderClick = (showMenu: boolean) => {
+    dispatch(setOrderByName(showMenu));
+    setShowMenu(!showMenu);
+  };
+
   return (
     <header className={styles.header__wrapper}>
       <div>
@@ -98,16 +103,14 @@ const Header: React.FC = () => {
               <div>
                 <Button
                   onClick={() => {
-                    dispatch(setOrderByName(true));
-                    setShowMenu(!showMenu);
+                    handleSetOrderClick(false);
                   }}
                 >
                   Popularity
                 </Button>
                 <Button
                   onClick={() => {
-                    dispatch(setOrderByName(false));
-                    setShowMenu(!showMenu);
+                    handleSetOrderClick(true);
                   }}
                 >
                   Alphabetical
