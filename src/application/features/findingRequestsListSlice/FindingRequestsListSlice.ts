@@ -30,7 +30,6 @@ const findingRequestsListSlice = createSlice({
     },
 
     setFinded(state, action) {
-      console.log(state, action);
       state.findedHits = action.payload;
     },
     tempSetFinded(state, action) {
