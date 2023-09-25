@@ -10,9 +10,11 @@ const Router: React.FC = () => {
       <Routes>
         <Route path="/find-my-hit/" element={<FindMyHitContainer />} />
         <Route path="/find-my-hit/albums/" element={<FindMyAlbumsContent />} />
+        <Route path="*" element={<FindMyHitContainer />} />
       </Routes>
     </BrowserRouter>
   );
 };
+
 
 export default Router;
