@@ -14,7 +14,7 @@ const List: React.FC<ListProps> = ({ items }) => {
 
   const handleLoadAlbums = (albums: string[]) => {
     dispatch(setIdsAlbums(albums));
-    navigate("/find-my-hit/albums/");
+    navigate("/find-my-hit/albums");
   };
   return (
     <div>

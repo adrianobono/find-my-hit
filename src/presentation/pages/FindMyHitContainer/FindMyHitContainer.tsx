@@ -22,7 +22,6 @@ function FindMyHitContainer() {
 
   return (
     <>
-      <div className="app-title">Find my favorite hit</div>
       {findedHits && (
         <div className={styles["find-hit__wrapper"]}>
           <List

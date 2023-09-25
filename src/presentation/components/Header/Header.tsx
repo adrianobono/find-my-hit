@@ -64,14 +64,14 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header__wrapper}>
       <div>
-        {location.pathname === "/find-my-hit/albums/" && (
+        {location.pathname === "/find-my-hit/albums" && (
           <Button id="back-to-search" onClick={() => handleBackClick()}>
             {"<"}
           </Button>
         )}
       </div>
       <div className={styles["header-back__search"]}>
-        {location.pathname !== "/find-my-hit/albums/" && (
+        {location.pathname !== "/find-my-hit/albums" && (
           <>
             Find
             <input
@@ -86,14 +86,14 @@ const Header: React.FC = () => {
           </>
         )}
 
-        {location.pathname === "/find-my-hit/albums/" && (
+        {location.pathname === "/find-my-hit/albums" && (
           <>
             <h3>Album(s)</h3>
           </>
         )}
       </div>
       <div>
-        {location.pathname !== "/find-my-hit/albums/" && (
+        {location.pathname !== "/find-my-hit/albums" && (
           <div className={styles["header-order-menu"]}>
             <Button id="show-menu" onClick={() => setShowMenu(!showMenu)}>
               <img src="./switch-vertical.svg" alt="" />
