@@ -1,6 +1,5 @@
 import axios from "axios";
 
 export const findMyHitAPI = axios.create({
-  baseURL: "https://dws-recruiting-bands.dwsbrazil.io/api",
+  baseURL: import.meta.env.VITE_URL_API,
 });
-

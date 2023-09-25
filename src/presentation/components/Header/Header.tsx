@@ -56,17 +56,22 @@ const Header: React.FC = () => {
     navigate("/find-my-hit/");
   };
 
+  const handleSetOrderClick = (showMenu: boolean) => {
+    dispatch(setOrderByName(showMenu));
+    setShowMenu(!showMenu);
+  };
+
   return (
     <header className={styles.header__wrapper}>
       <div>
-        {location.pathname === "/find-my-hit/albums/" && (
+        {location.pathname === "/find-my-hit/albums" && (
           <Button id="back-to-search" onClick={() => handleBackClick()}>
             {"<"}
           </Button>
         )}
       </div>
       <div className={styles["header-back__search"]}>
-        {location.pathname !== "/find-my-hit/albums/" && (
+        {location.pathname !== "/find-my-hit/albums" && (
           <>
             Find
             <input
@@ -81,14 +86,14 @@ const Header: React.FC = () => {
           </>
         )}
 
-        {location.pathname === "/find-my-hit/albums/" && (
+        {location.pathname === "/find-my-hit/albums" && (
           <>
             <h3>Album(s)</h3>
           </>
         )}
       </div>
       <div>
-        {location.pathname !== "/find-my-hit/albums/" && (
+        {location.pathname !== "/find-my-hit/albums" && (
           <div className={styles["header-order-menu"]}>
             <Button id="show-menu" onClick={() => setShowMenu(!showMenu)}>
               <img src="./switch-vertical.svg" alt="" />
@@ -98,16 +103,14 @@ const Header: React.FC = () => {
               <div>
                 <Button
                   onClick={() => {
-                    dispatch(setOrderByName(true));
-                    setShowMenu(!showMenu);
+                    handleSetOrderClick(false);
                   }}
                 >
                   Popularity
                 </Button>
                 <Button
                   onClick={() => {
-                    dispatch(setOrderByName(false));
-                    setShowMenu(!showMenu);
+                    handleSetOrderClick(true);
                   }}
                 >
                   Alphabetical
