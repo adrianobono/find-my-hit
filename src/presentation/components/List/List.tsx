@@ -14,7 +14,7 @@ const List: React.FC<ListProps> = ({ items }) => {
 
   const handleLoadAlbums = (albums: string[]) => {
     dispatch(setIdsAlbums(albums));
-    navigate("/albums");
+    navigate("/find-my-hit/albums/");
   };
   return (
     <div>
@@ -28,6 +28,7 @@ const List: React.FC<ListProps> = ({ items }) => {
             </div>
             <div>
               <Button
+                id={`show-album-${index}`}
                 onClick={() => {
                   handleLoadAlbums(band.albums);
                 }}

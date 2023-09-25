@@ -8,8 +8,8 @@ const Router: React.FC = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="" element={<FindMyHitContainer />} />
-        <Route path="/albums" element={<FindMyAlbumsContent />} />
+        <Route path="/find-my-hit/" element={<FindMyHitContainer />} />
+        <Route path="/find-my-hit/albums/" element={<FindMyAlbumsContent />} />
       </Routes>
     </BrowserRouter>
   );

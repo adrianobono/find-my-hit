@@ -53,21 +53,25 @@ const Header: React.FC = () => {
   const handleBackClick = () => {
     sessionStorage.setItem("albums", "[]");
     dispatch(setDataAlbums([]));
-    navigate("/");
+    navigate("/find-my-hit/");
   };
 
   return (
     <header className={styles.header__wrapper}>
       <div>
-        {location.pathname === "/albums" && (
-          <Button onClick={() => handleBackClick()}>{"<"}</Button>
+        {location.pathname === "/find-my-hit/albums/" && (
+          <Button id="back-to-search" onClick={() => handleBackClick()}>
+            {"<"}
+          </Button>
         )}
       </div>
       <div className={styles["header-back__search"]}>
-        {location.pathname !== "/albums" && (
+        {location.pathname !== "/find-my-hit/albums/" && (
           <>
             Find
             <input
+              id="search-my-hit"
+              name="serch-my-hit"
               type="text"
               placeholder="your Hit..."
               value={searchInput}
@@ -77,16 +81,16 @@ const Header: React.FC = () => {
           </>
         )}
 
-        {location.pathname === "/albums" && (
+        {location.pathname === "/find-my-hit/albums/" && (
           <>
             <h3>Album(s)</h3>
           </>
         )}
       </div>
       <div>
-        {location.pathname !== "/albums" && (
+        {location.pathname !== "/find-my-hit/albums/" && (
           <div className={styles["header-order-menu"]}>
-            <Button onClick={() => setShowMenu(!showMenu)}>
+            <Button id="show-menu" onClick={() => setShowMenu(!showMenu)}>
               <img src="./switch-vertical.svg" alt="" />
             </Button>
 
