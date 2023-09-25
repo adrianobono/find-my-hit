@@ -33,7 +33,7 @@ function FindMyAlbumContent() {
       Promise.all([findAlbums()])
         .then(() => {
           setTimeout(() => {
-            albums.length === 0 && navigate("/");
+            albums.length === 0 && navigate("/find-my-hit/");
             sessionStorage.setItem("albums", JSON.stringify(albums));
             dispatch(setDataAlbums(albums));
           }, 500);
